@@ -1,0 +1,19 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: Connect
+metadata:
+  name: kafka-connect
+spec:
+  replicas: 1
+  image:
+    application: confluentinc/cp-server-connect:7.0.1
+    init: confluentinc/confluent-init-container:2.2.0-1
+  build:
+    type: onDemand                                              
+    onDemand:
+      plugins:
+        locationType: confluentHub                             
+        confluentHub:                                          
+          - name: kafka-connect-http                                              
+            owner: confluentinc
+            version: 1.5.3
+      storageLimit: 1G
