@@ -16,4 +16,7 @@ spec:
           - name: kafka-connect-http                                              
             owner: confluentinc
             version: 1.5.3
+          - name: kafka-connect-http                                              
+            owner: castorm
+            version: 0.8.6
       storageLimit: 1G
